@@ -10,4 +10,17 @@ class Credential:
     self.appLogin = appLogin
     self.appPassword
 
+  #save
+  @classmethod
+  def saveCred(self):
+    Credential.mycred.append(self)
   
+  #display one or many
+  @classmethod
+  def displayCred(cls):
+    return cls.mycred
+
+    
+  #search by app name
+  # delete selected
+  # update data selected

@@ -1,3 +1,4 @@
+
 class User:
   
   """
@@ -11,4 +12,8 @@ class User:
     self.password = password
     self.con_pass = con_pass
 
+  # save user data
+  def savedata(self):
+    with open("userdetail.txt", "w") as handle:
+      handle.write(self)
   

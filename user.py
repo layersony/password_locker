@@ -1,6 +1,7 @@
-
+#! /usr/bin/python3
 class User:
-  
+
+  userdetail = []
   """
     class for register user have to firstname, lastname, phonenumber, emaol, password, confirm password
   """
@@ -14,6 +15,17 @@ class User:
 
   # save user data
   def savedata(self):
-    with open("userdetail.txt", "w") as handle:
-      handle.write(self)
+    self.userdetail.append(self)
+
+  @classmethod
+  def displayUser(self):
+    
+    
+
   
+
+
+new_contact = User("Samuel", "Maingi", "0796727706", "sm@gmail.com", "123456", '123456')
+User.savedata(new_contact)
+
+User.displayUser()

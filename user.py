@@ -1,7 +1,8 @@
 #! /usr/bin/python3
 class User:
 
-  userdetail = []
+  userdetail = ["Samuel", "Maingi", "0796727706", "sm@gmail.com", "123456", '123456']
+
   """
     class for register user have to firstname, lastname, phonenumber, emaol, password, confirm password
   """
@@ -14,18 +15,16 @@ class User:
     self.con_pass = con_pass
 
   # save user data
-  def savedata(self):
-    self.userdetail.append(self)
-
-  @classmethod
-  def displayUser(self):
-    
-    
+  def saveUser(self): # if new
+    User.userdetail.append(self)
 
   
-
-
-new_contact = User("Samuel", "Maingi", "0796727706", "sm@gmail.com", "123456", '123456')
-User.savedata(new_contact)
-
-User.displayUser()
+  def displayUser(self): # display user information from registration
+    return User.userdetail
+  
+  @classmethod
+  def checkUserExist(cls, usrname, password):
+    if usrname == cls.userdetail[0] and password == cls.userdetail[5]:
+      return True
+    else:
+      return False

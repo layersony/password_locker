@@ -39,7 +39,7 @@ To run this project, please follow the following instructions.
 * To run the application, in your terminal:
 
         $ chmod +x main.py
-        $ ./run.py
+        $ ./main.py
 
 ## Testing the Application
 * To run the tests for the application file:
@@ -54,7 +54,7 @@ To run this project, please follow the following instructions.
 | Register If new | **Would you like to register?** | Provide username, firstname, lastname, phone number, email, password, confirm password |
 | Display menu Navigation | **What would you like to do?** | Use these codes : new - create a new credential, display - display credentials, delete - delete a credential, 00 - exit delete panel to main menu ,exit -exit the Application  |
 | Prompt for creating new Credential | **Enter: new** | Enter the required form Account type, login name, email, site Url, password |
-| Generate Password or input custom Password | **What System Generated password** | gives option for either system generated password or custom password |
+| Generate Password or input custom Password | **Want System Generated password** | gives option for either system generated password or custom password |
 | Prompt for Diplay stored Credentials | **Enter: display** | list Available Credentials |
 | Prompt for Deleting a Credential | **Enter: delete** | Credential deleted successfully |
 | Exit | **Enter: exit** | Exit the Application |

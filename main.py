@@ -7,7 +7,7 @@ def login():
   password = input("Password:\t")
 
   if User.checkUserExist(usrname, password):
-    print("User exist")
+    print("*"*20)
   else:
     print("Username and password are Invalid")
     reg = input("WOuld you like to register? (y/n)").lower()
@@ -37,18 +37,39 @@ def register():
   User.saveUser( conf_password, "a")
 
 def menu():
-  usr = input("what would you like to do:")
+  usr = input("what would you like to do: ")
   if usr == "new":
-    pass
+    add_cred()
   elif  usr == "update":
     pass
-  elif usr == "list":
+  elif usr == "display":
     pass
   elif usr == "delete":
     pass
   else:
     print("didn't catch what you sayed")
     menu()
+
+def add_cred():
+
+  passcus = input("Want a system Gen password of custom")
+  
+  actype = input("Account type: ")
+  Credential.saveUser(actype + '|')
+
+  login = input("Login Name: ")
+  Credential.saveUser( login +'|')
+
+  email = input("Email: ")
+  Credential.saveUser( email +'|')
+
+
+  usrpass = input("Custom password: ")
+  Credential.saveUser( usrpass +'|')
+
+  password = input("System Gen: ")
+  Credential.saveUser( password +'\n')
+
 
 if __name__ == '__main__':
   login()

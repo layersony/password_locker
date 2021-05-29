@@ -1,5 +1,5 @@
+import random
 class Credential:
-
 
   mycred = []
 
@@ -11,16 +11,22 @@ class Credential:
     self.appPassword
 
   #save
-  @classmethod
-  def saveCred(self):
-    Credential.mycred.append(self)
+  def saveUser(inputtype):
+    with open("credlocker.txt", "a") as handle:
+      handle.write(inputtype)
   
   #display one or many
   @classmethod
   def displayCred(cls):
     return cls.mycred
 
-    
+  def gen_pass(self):
+    char = "ABCDEFGHIJKLMNOPQRSTUVWXYXabcdefghijklmnopqrstuvwxyx1234567890"
+    passwd = ''
+
+    for i in range(10):
+      passwd = random.choice(char)
+    return passwd
   #search by app name4
   # delete selected
   # update data selected

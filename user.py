@@ -13,11 +13,6 @@ class User:
     self.email = email
     self.password = password
     self.con_pass = con_pass
-
-  # save user data
-  # def saveUser(self): # if new
-  #   User.userdetail.append(self)
-
   
   def displayUser(self): # display user information from registration
     return User.userdetail

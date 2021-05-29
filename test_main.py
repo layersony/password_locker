@@ -61,7 +61,22 @@ class Test_Credential(unittest.TestCase):
     with open("credlocker.txt", "r") as handle:
       data = handle.read()
       self.assertEqual(data, self.full)
-      
+
+  def test_gen_pass(self):
+    '''
+      method that tests if passwords are being generated and lenght is 20
+    '''
+    self.assertEqual(len(Credential.gen_pass()), 20)
+
+  # test find number
+  def test_find(self):
+    Credential.saveUser(self.full)
+    data = Credential.displayCred()
+    found = Credential.findCred('maingi')
+    found2 = ['|'.join(found[0:])]
+    self.assertEqual(data, found2)
+
 
 if __name__ == '__main__':
   unittest.main()
+  

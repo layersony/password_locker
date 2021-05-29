@@ -34,20 +34,21 @@ def register():
   User.saveUser( password +'|', "a")
   conf_password = input("Confirm Password: ")
   User.saveUser( conf_password, "a")
+  login()
 
-def menu():
-  usr = input("what would you like to do: ")
-  if usr == "new": # done
-    add_cred()
-  # elif  usr == "update":
-  #   pass
-  elif usr == "display": # done
-    displaycred()
-  elif usr == "delete":
-    delete()
-  else:
-    print("didn't catch what you sayed")
-    menu()
+# def menu():
+#   usr = input("what would you like to do: ")
+#   if usr == "new": # done
+#     add_cred()
+#   elif usr == "display": # done
+#     displaycred()
+#   elif usr == "delete": # done
+#     delete()
+#   elif usr == 'exit':
+#     end = False
+#   else:
+#     print("didn't catch what you sayed")
+#     menu()
 
 def passcode():
   passcus = input("Want a system Gen password: ").lower()
@@ -91,10 +92,31 @@ def displaycred():
     print('*'*40)
 
 def delete():
-  data = Credential.findCred("layersony")
-  Credential.deleteCred(data)
+  todele = input("What do you want to delete? ")
+
+  if todele == "1":
+    data = Credential.findCred("maingi")
+    Credential.deleteCred(data)
+    displaycred()
+  else:
+    print('Didnt catch you')
 
 
 if __name__ == '__main__':
+  end = True
   login()
-  menu()
+
+  while end:
+    usr = input("what would you like to do: ")
+    if usr == "new": # done
+      add_cred()
+    elif usr == "display": # done
+      displaycred()
+    elif usr == "delete": # done
+      delete()
+    elif usr == 'exit':
+      print("Thank you see you again")
+      end = False
+    else:
+      print("didn't catch what you sayed")
+      continue

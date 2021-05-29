@@ -76,7 +76,11 @@ class Test_Credential(unittest.TestCase):
     found2 = ['|'.join(found[0:])]
     self.assertEqual(data, found2)
 
+  def test_display(self):
+    Credential.saveUser(self.full)
+    data = Credential.displayCred()
+    self.assertEqual(data, Credential.displayCred())
+    
 
 if __name__ == '__main__':
   unittest.main()
-  

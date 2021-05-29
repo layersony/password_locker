@@ -24,12 +24,15 @@ class User:
   
   @classmethod
   def checkUserExist(cls, usrname, password):
-    
-    if usrname == cls.userdetail[0] and password == cls.userdetail[-1]:
+    with open("userlocker.txt", "r") as handle:
+      data = handle.read()
+      fulldata = data.split("|")    
+    if usrname == fulldata[0] and password == fulldata[-1]:
       return True
     else:
       return False
 
-  def saveUser(inputtype):
-    with open("userlocker.txt", "w") as handle:
+  def saveUser(inputtype, mood):
+    with open("userlocker.txt", mood) as handle:
       handle.write(inputtype)
+

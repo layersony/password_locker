@@ -22,21 +22,34 @@ def login():
 
 def register():
   usrname = input("Username (for login)")
-  User.saveUser(usrname + '|')
+  User.saveUser(usrname + '|', "w")
   first_name = input("Firstname: ")
-  User.saveUser( first_name +'|' )
+  User.saveUser( first_name +'|', "a" )
   last_name = input("Last_name: ")
-  User.saveUser( last_name +'|' )
+  User.saveUser( last_name +'|', "a")
   phone_number = input("Phone Number: ")
-  User.saveUser( phone_number +'|' )
+  User.saveUser( phone_number +'|', "a")
   email = input("Email: ")
-  User.saveUser( email +'|' )
+  User.saveUser( email +'|', "a")
   password = input("password: ")
-  User.saveUser( password +'|' )
+  User.saveUser( password +'|', "a")
   conf_password = input("Confirm Password: ")
-  User.saveUser( conf_password +'|' )
+  User.saveUser( conf_password, "a")
 
-
+def menu():
+  usr = input("what would you like to do:")
+  if usr == "new":
+    pass
+  elif  usr == "update":
+    pass
+  elif usr == "list":
+    pass
+  elif usr == "delete":
+    pass
+  else:
+    print("didn't catch what you sayed")
+    menu()
 
 if __name__ == '__main__':
   login()
+  menu()

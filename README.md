@@ -25,6 +25,9 @@ What Can the Appication do:
 
 
 ---
+## Design pattern
+
+* Figma design pattern for project [Click_Me](https://www.figma.com/file/AyV5VBxbNb8cTHtmeSxAJj/password_locker?node-id=0%3A1)
 
 ## Run Application
 Need an Terminal (Mac or Linux) or Command Prompt(Windows)

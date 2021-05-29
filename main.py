@@ -50,9 +50,21 @@ def menu():
     print("didn't catch what you sayed")
     menu()
 
-def add_cred():
+def passcode():
+  passcus = input("Want a system Gen password: ").lower()
 
-  passcus = input("Want a system Gen password of custom")
+  if passcus == "n":
+    usrpass = input("Custom password: ")
+    Credential.saveUser( usrpass +'\n')
+  elif passcus == 'y':
+    password = Credential.gen_pass()
+    Credential.saveUser(password)
+    Credential.saveUser('\n')
+  else:
+    print('Didnt catch you write Pardon')
+    passcode()
+
+def add_cred():
   
   actype = input("Account type: ")
   Credential.saveUser(actype + '|')
@@ -64,11 +76,6 @@ def add_cred():
   Credential.saveUser( email +'|')
 
 
-  usrpass = input("Custom password: ")
-  Credential.saveUser( usrpass +'|')
-
-  password = input("System Gen: ")
-  Credential.saveUser( password +'\n')
 
 
 if __name__ == '__main__':

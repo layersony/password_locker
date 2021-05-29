@@ -14,9 +14,6 @@ class User:
     self.password = password
     self.con_pass = con_pass
   
-  def displayUser(self): # display user information from registration
-    return User.userdetail
-  
   @classmethod
   def checkUserExist(cls, usrname, password):
     with open("userlocker.txt", "r") as handle:

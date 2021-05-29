@@ -49,6 +49,7 @@ class Credential:
       if tdata != info:
         temp.write(i)
 
+
     file.close()
     temp.close()
 

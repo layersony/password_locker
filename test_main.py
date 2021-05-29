@@ -10,8 +10,7 @@ class Test_User(unittest.TestCase):
     self.password = '12345'
 
   def tearDown(self):
-    with open("userlocker.txt", "w") as handle:
-      handle.write("")
+    pass
 
   def test_checkUser(self):
     User.saveUser(self.usrname + '|', 'a')
@@ -24,7 +23,18 @@ class Test_User(unittest.TestCase):
       self.assertEqual(self.usrname, fulldata[0])
       self.assertEqual(self.password, fulldata[-1])
 
+    with open("userlocker.txt", "w") as handle:
+      handle.write("")
   
+  def test_save(self):
+    full = self.usrname + '|' + self.password
+    User.saveUser(self.usrname + '|', 'a')
+    User.saveUser(self.password, 'a')
+
+    with open("userlocker.txt", "r") as handle:
+      data = handle.read()
+      self.assertEqual(data, full)
+
 
 class Test_Credential(unittest.TestCase):
   pass

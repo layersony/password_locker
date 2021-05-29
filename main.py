@@ -17,8 +17,7 @@ def login():
       login()
     else:
       print("Didn't Catch what you saying")
-      login()
-      
+      login() 
 
 def register():
   usrname = input("Username (for login)")
@@ -38,12 +37,12 @@ def register():
 
 def menu():
   usr = input("what would you like to do: ")
-  if usr == "new":
+  if usr == "new": # done
     add_cred()
-  elif  usr == "update":
-    pass
+  # elif  usr == "update":
+  #   pass
   elif usr == "display":
-    pass
+    displaycred()
   elif usr == "delete":
     pass
   else:
@@ -75,8 +74,21 @@ def add_cred():
   email = input("Email: ")
   Credential.saveUser( email +'|')
 
+  passcode()
 
-
+def displaycred():
+  data = Credential.displayCred()
+  for i in data:
+    afspl = i.split('|')
+    print('*'*40)
+    print("Account type: " + afspl[0])
+    
+    print("Login Name: " + afspl[1])
+    
+    print("Email: " + afspl[2])
+    
+    print("Password: " + afspl[3])
+    print('*'*40)
 
 if __name__ == '__main__':
   login()

@@ -1,5 +1,6 @@
 import random
 import string
+import os
 
 
 class Credential:
@@ -24,6 +25,7 @@ class Credential:
       data = handle.readlines()
       return data 
 
+  # gen_password
   def gen_pass():
 
     passwd = ''
@@ -35,7 +37,33 @@ class Credential:
       passwd += random.choice(string.digits)
       passwd += random.choice(symbols)
     return passwd
-    
-  #search by app name4
+  
   # delete selected
+  def deleteCred(info):
+    file = open("credlocker.txt", "r")
+    temp = open("temp.txt", 'w+')
+
+    data = file.readlines()
+    for i in data:
+      tdata = i.split("|")
+      if tdata != info:
+        temp.write(i)
+
+    file.close()
+    temp.close()
+
+    os.remove('credlocker.txt')
+    os.replace('temp.txt', "credlocker.txt")
+
+  #find by name
+  @classmethod
+  def findCred(cls, name):
+    data = cls.displayCred()
+    for i in data:
+      afspl = i.split('|')
+      if afspl[1] == name:
+        return afspl
+
+
+  #search by app name4
   # update data selected

@@ -41,10 +41,10 @@ def menu():
     add_cred()
   # elif  usr == "update":
   #   pass
-  elif usr == "display":
+  elif usr == "display": # done
     displaycred()
   elif usr == "delete":
-    pass
+    delete()
   else:
     print("didn't catch what you sayed")
     menu()
@@ -89,6 +89,11 @@ def displaycred():
     
     print("Password: " + afspl[3])
     print('*'*40)
+
+def delete():
+  data = Credential.findCred("layersony")
+  Credential.deleteCred(data)
+
 
 if __name__ == '__main__':
   login()

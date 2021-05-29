@@ -1,4 +1,3 @@
-#! /usr/bin/python3
 class User:
 
   userdetail = ["Samuel", "Maingi", "0796727706", "sm@gmail.com", "123456", '123456']

@@ -68,7 +68,6 @@ class Test_Credential(unittest.TestCase):
     '''
     self.assertEqual(len(Credential.gen_pass()), 20)
 
-  # test find number
   def test_find(self):
     Credential.saveUser(self.full)
     data = Credential.displayCred()
@@ -81,6 +80,18 @@ class Test_Credential(unittest.TestCase):
     data = Credential.displayCred()
     self.assertEqual(data, Credential.displayCred())
     
+  def test_delete(self):
+    full = 'twitter|maingi|twitter.com|sm@gmail.com|12345\n'
+    full2 = 'instagram|mutunga|instagram.com|tyu@gmail.com|87648976\n'
+    full3 = 'facebook|layersony|facebook.com|unb@gmail.com|34786855\n'
+    Credential.saveUser(full)
+    Credential.saveUser(full2)
+    Credential.saveUser(full3)
+    data = Credential.findCred("mutunga")
+    Credential.deleteCred(data)
+    with open("credlocker.txt", "r") as handle:
+      info = handle.readlines()
+      self.assertEqual(len(info), 2)
 
 if __name__ == '__main__':
   unittest.main()

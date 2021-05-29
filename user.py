@@ -3,7 +3,7 @@ class User:
   userdetail = ["layersony","Samuel", "Maingi", "0796727706", "sm@gmail.com", "123456", '123456']
 
   """
-    class for register user have to firstname, lastname, phonenumber, emaol, password, confirm password
+    class for register user have to firstname, lastname, phonenumber, email, password, confirm password
   """
   def __init__(self, username ,first_name, last_name, phone_number, email, password, con_pass):
 

@@ -64,7 +64,3 @@ class Credential:
       afspl = i.split('|')
       if afspl[1] == name:
         return afspl
-
-
-  #search by app name4
-  # update data selected

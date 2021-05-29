@@ -62,6 +62,9 @@ def add_cred():
   email = input("Email: ")
   Credential.saveUser( email +'|')
 
+  url = input("App Url: ")
+  Credential.saveUser( url +'|')
+
   passcode()
 
 def displaycred():

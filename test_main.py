@@ -8,6 +8,7 @@ class Test_User(unittest.TestCase):
   def setUp(self):
     self.usrname = 'layersony'
     self.password = '12345'
+    self.full = self.usrname + '|' + self.password
 
   def tearDown(self):
     pass
@@ -27,18 +28,40 @@ class Test_User(unittest.TestCase):
       handle.write("")
   
   def test_save(self):
-    full = self.usrname + '|' + self.password
     User.saveUser(self.usrname + '|', 'a')
     User.saveUser(self.password, 'a')
 
     with open("userlocker.txt", "r") as handle:
       data = handle.read()
-      self.assertEqual(data, full)
+      self.assertEqual(data, self.full)
 
 
 class Test_Credential(unittest.TestCase):
-  pass
+  def setUp(self):
+    self.appType = 'twitter'
+    self.appLogin = 'maingi'
+    self.appUrl = 'twitter.com'
+    self.email = 'sm@gmail.com'
+    self.appPassword = '12345'
 
+    self.full = 'twitter|maingi|twitter.com|sm@gmail.com|12345'
+
+  def tearDown(self):
+    with open("credlocker.txt", "w") as handle:
+      handle.write("")
+
+  def test_save(self):
+    Credential.saveUser(self.appType + '|')
+    Credential.saveUser(self.appLogin + '|')
+    Credential.saveUser(self.appUrl + '|')
+    Credential.saveUser(self.email + '|')
+    Credential.saveUser(self.appPassword)
+
+    
+    with open("credlocker.txt", "r") as handle:
+      data = handle.read()
+      self.assertEqual(data, self.full)
+      
 
 if __name__ == '__main__':
   unittest.main()

@@ -6,6 +6,10 @@ class User:
     class for register user have to firstname, lastname, phonenumber, emaol, password, confirm password
   """
   def __init__(self, username ,first_name, last_name, phone_number, email, password, con_pass):
+
+    '''
+      initialize the class user when called
+    '''
     self.username = username
     self.first_name = first_name
     self.last_name = last_name
@@ -16,6 +20,9 @@ class User:
   
   @classmethod
   def checkUserExist(cls, usrname, password):
+    '''
+      this method checks the username and password provided by user input if it exists  in the file or not
+    '''
     with open("userlocker.txt", "r") as handle:
       data = handle.read()
       fulldata = data.split("|")    
@@ -25,6 +32,9 @@ class User:
       return False
 
   def saveUser(inputtype, mood):
+    '''
+      method to save data that is provide by user during registration
+    '''
     with open("userlocker.txt", mood) as handle:
       handle.write(inputtype)
 
